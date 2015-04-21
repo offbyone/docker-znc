@@ -3,17 +3,17 @@ set -e
 
 
 # Config
-ZNC_VERSION="1.4"
+ZNC_VERSION="1.6.0"
 
 
 # Ensure package list is up to date.
-apt-get update
+# apt-get update 
 
-# Install runtime dependencies.
-apt-get install -y sudo
+# # Install runtime dependencies.
+# apt-get install -y sudo
 
-# Install build dependencies.
-apt-get install -y wget build-essential libssl-dev libperl-dev pkg-config
+# # Install build dependencies.
+# apt-get install -y wget build-essential libssl-dev libperl-dev libpython-dev pkg-config
 
 
 # Prepare building
@@ -25,7 +25,7 @@ cd /src
 wget "http://znc.in/releases/archive/znc-${ZNC_VERSION}.tar.gz"
 tar -zxf "znc-${ZNC_VERSION}.tar.gz"
 cd "znc-${ZNC_VERSION}"
-./configure && make && make install
+./configure --with-python --with-perl && make && make install
 
 
 # Clean up
