@@ -6,7 +6,8 @@ MAINTAINER  Chris Rose "offline@offby1.net"
 # We use a bootstrap script to avoid having temporary cache files and build
 # dependencies being committed and included into the docker image.
 RUN         apt-get update && apt-get install -y \
-              sudo wget build-essential libssl-dev libperl-dev libpython-dev pkg-config
+              sudo wget build-essential libssl-dev libperl-dev pkg-config \
+              python3-dev python3 python-software-properties
 ADD         bootstrap.sh /tmp/
 RUN         chmod +x /tmp/bootstrap.sh && sync; /tmp/bootstrap.sh
 
