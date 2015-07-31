@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-if [[ -z $UID ]]; then
-    useradd znc -u $UID
-else
-    useradd znc
-fi
