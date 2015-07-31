@@ -9,7 +9,7 @@ RUN         apt-get update && apt-get install -y \
               sudo wget build-essential libssl-dev libperl-dev pkg-config \
               python3-dev python3 python-software-properties
 ADD         bootstrap.sh user-setup /tmp/
-RUN         chmod +x /tmp/bootstrap.sh user-setup && sync; /tmp/bootstrap.sh
+RUN         chmod +x /tmp/bootstrap.sh /tmp/user-setup && sync; /tmp/bootstrap.sh
 
 RUN         /tmp/user-setup
 ADD         start-znc /usr/local/bin/
